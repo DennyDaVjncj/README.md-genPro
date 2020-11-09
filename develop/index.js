@@ -1,21 +1,24 @@
 const inquire=require('inquirer');
+const effEss=require('fs');
+const utility=require('util');
+
 // array of questions for user
 const questions = [
     {
         type:'input',
         name:'title',
-        message:'what is the title of your project?'
+        message:'what is the title for your project?'
     },
     {
         type:'input',
         name:'description',
-        message:'tell us about your project in full detail'
+        message:'tell us all about your project, be as descriptive as possible while making use of brevity'
 
     },
     {
         type:'input',
         name:'installInstructions',
-        message:'install ?'
+        message:''
 
     },
 
