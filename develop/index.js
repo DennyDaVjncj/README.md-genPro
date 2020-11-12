@@ -1,13 +1,15 @@
 const inquire=require('inquirer');
 const effEss=require('fs');
 const utility=require('util');
+//enter markDown code within tempLiterals;
+const writeFileAsync=utility.promisify(effEss.writeFile);
 
 // array of questions for user
-const buildReadMe =()=>{
-    return inquire.prompt([
+const  promptUser=()=>inquire.prompt([
+        //complete development of questions
         {
             type:'input',
-            name:'github username',
+            name:'githubUsername',
             message:'enter your github username'
         },
         {
@@ -57,15 +59,23 @@ const buildReadMe =()=>{
     
         }
     ])
-}
+//user's response to all these questions to be passed to a md file
+
+const generationMD=(tabulateREADME)=>
+`
+# Application Title:
+${tabulateREADME.}
+`
+
 
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function genMarkdown(data) {
+//     ``
+// }
 
 // function to initialize program
 function init() {
-
+    buildReadMe()
 }
 
 // function call to initialize program
