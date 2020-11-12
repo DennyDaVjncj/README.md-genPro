@@ -62,10 +62,14 @@ const  promptUser=()=>inquire.prompt([
 //user's response to all these questions to be passed to a md file
 
 const generationMD=(tabulateREADME)=>
-`
-# Application Title:
-${tabulateREADME.}
-`
+`# Application Title:
+${tabulateREADME.githubUsername}
+`;
+
+promptUser()
+    .then((tabulateREADME)=>writeFileAsync('README.md',generationMD(tabulateREADME)))
+    .then(()=>console.log('new life spawned'))
+    .catch((malware)=>console.error(malware));
 
 
 // function to write README file
@@ -74,12 +78,12 @@ ${tabulateREADME.}
 // }
 
 // function to initialize program
-function init() {
-    buildReadMe()
-}
+// function init() {
+//     buildReadMe()
+// }
 
 // function call to initialize program
-init();
+// init();
 
 //build out question objects
 //ensure inquire packagae is installed
