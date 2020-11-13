@@ -3,6 +3,7 @@ const effEss=require('fs');
 const utility=require('util');
 const Choice = require('inquirer/lib/objects/choice');
 const Choices = require('inquirer/lib/objects/choices');
+const generationMarkDown=require("./utils/generateMarkDown")
 //enter markDown code within tempLiterals;
 const writeFileAsync=utility.promisify(effEss.writeFile);
 
@@ -43,22 +44,10 @@ const  promptUser=()=>inquire.prompt([
             name:'contents',
             message:'provide a quick breakdown of how to traverse your project'
     
-        },
+        },        
         {
             type:'input',
-            name:'installation',
-            message:'provide clear instructions in setting up functionality for this project'
-    
-        },
-        {
-            type:'input',
-            name:'usage',
-            message:'tell prospective users how to make use of this application'
-    
-        },
-        {
-            type:'input',
-            name:'contributing',
+            name:'contribute',
             message:'inform users how they may contribute to this project'
     
         },
@@ -71,22 +60,11 @@ const  promptUser=()=>inquire.prompt([
     ])
 //user's response to all these questions to be passed to a md file
 
-const generationMD=(tabulateREADME)=>
-`# ${tabulateREADME.title}:
-
-## Description:
-${tabulateREADME.description}
-
-## Table of Contents:
-- [Description](##Description)
-- [Guidlines for installation](##installation-guidlines)
-
-## Installation Guidlines:
-${tabulateREADME.installation}
-
-`;
+const generationMD=()=>{
+    //what should go within this function
+}
 
 promptUser()
-    .then((tabulateREADME)=>writeFileAsync('myREADME.md',generationMD(tabulateREADME)))
+    .then((generationMarkDown)=>writeFileAsync('README.md',generationMD(generationMarkDown)))
     .then(()=>console.log('README.md spawnded'))
     .catch((malware)=>console.error(malware));
