@@ -9,21 +9,26 @@ const  promptUser=()=>inquire.prompt([
         //complete development of questions
         {
             type:'input',
-            name:'githubUsername',
-            message:'enter your github username'
-        },
-        {
-            type:'input',
-            name:'email',
-            message:'enter your email address'
-        },
-        {
-            type:'input',
             name:'title',
-            message:'whats the title for this stellar application?'
+            message:'whats the name for this stellar app of yours?'
         },
         {
             type:'input',
+            name:'description',
+            message:'provide a description for this app'
+        },
+        {
+            type:'input',
+            name:'installation',
+            message:"narrate to users how they can install this app, brevity is essential"
+        },
+        {
+            type:'input',
+            name:'use',
+            message:'what is the intended usage for this novel application?'
+        },
+        {
+            type:'choice',
             name:'description',
             message:'tell us all about your project, be as descriptive as possible while making use of brevity'
     
@@ -62,29 +67,20 @@ const  promptUser=()=>inquire.prompt([
 //user's response to all these questions to be passed to a md file
 
 const generationMD=(tabulateREADME)=>
-`# Application Title:
-${tabulateREADME.githubUsername}
+`# ${tabulateREADME.title}:
+
+## Description:
+${tabulateREADME.description}
+
+## Table of Contents:
+1. ${tabulateREADME.description}
+
+## Installation Guidlines:
+-  
+
 `;
 
 promptUser()
-    .then((tabulateREADME)=>writeFileAsync('README.md',generationMD(tabulateREADME)))
-    .then(()=>console.log('new life spawned'))
+    .then((tabulateREADME)=>writeFileAsync('myREADME.md',generationMD(tabulateREADME)))
+    .then(()=>console.log('myREADME.md spawnded'))
     .catch((malware)=>console.error(malware));
-
-
-// function to write README file
-// function genMarkdown(data) {
-//     ``
-// }
-
-// function to initialize program
-// function init() {
-//     buildReadMe()
-// }
-
-// function call to initialize program
-// init();
-
-//build out question objects
-//ensure inquire packagae is installed
-//
