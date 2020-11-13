@@ -1,9 +1,8 @@
 const inquire=require('inquirer');
 const effEss=require('fs');
 const utility=require('util');
-const Choice = require('inquirer/lib/objects/choice');
 const Choices = require('inquirer/lib/objects/choices');
-const generationMarkDown=require("./utils/generateMarkDown")
+const generationMarkDown=require("./utils/generateMarkDown");
 //enter markDown code within tempLiterals;
 const writeFileAsync=utility.promisify(effEss.writeFile);
 
@@ -13,7 +12,7 @@ const  promptUser=()=>inquire.prompt([
         {
             type:'input',
             name:'title',
-            message:'whats the name for this stellar app of yours?'
+            message:'whats the name to this stellar app of yours?'
         },
         {
             type:'input',
@@ -33,9 +32,9 @@ const  promptUser=()=>inquire.prompt([
         {
             type:'list',
             name:'license',
-            message:'which license did you decide on making use of for this app?',
+            message:'which license did you decide on making use of for this app? an abbreviated selection',
             choices:[
-
+                'Apache License 2.0', 'GNU General Public License v3.0','MIT License','Boost Software License 1.0'
             ]
     
         },
