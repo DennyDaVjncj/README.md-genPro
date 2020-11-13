@@ -1,6 +1,8 @@
 const inquire=require('inquirer');
 const effEss=require('fs');
 const utility=require('util');
+const Choice = require('inquirer/lib/objects/choice');
+const Choices = require('inquirer/lib/objects/choices');
 //enter markDown code within tempLiterals;
 const writeFileAsync=utility.promisify(effEss.writeFile);
 
@@ -28,9 +30,12 @@ const  promptUser=()=>inquire.prompt([
             message:'what is the intended usage for this novel application?'
         },
         {
-            type:'choice',
-            name:'description',
-            message:'tell us all about your project, be as descriptive as possible while making use of brevity'
+            type:'list',
+            name:'license',
+            message:'which license did you decide on making use of for this app?',
+            choices:[
+
+            ]
     
         },
         {
@@ -73,14 +78,15 @@ const generationMD=(tabulateREADME)=>
 ${tabulateREADME.description}
 
 ## Table of Contents:
-1. ${tabulateREADME.description}
+- [Description](##Description)
+- [Guidlines for installation](##installation-guidlines)
 
 ## Installation Guidlines:
--  
+${tabulateREADME.installation}
 
 `;
 
 promptUser()
     .then((tabulateREADME)=>writeFileAsync('myREADME.md',generationMD(tabulateREADME)))
-    .then(()=>console.log('myREADME.md spawnded'))
+    .then(()=>console.log('README.md spawnded'))
     .catch((malware)=>console.error(malware));
