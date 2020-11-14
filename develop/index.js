@@ -9,6 +9,12 @@ const writeFileAsync=utility.promisify(effEss.writeFile);
 // array of questions for user
 const  promptUser=()=>inquire.prompt([
         //complete development of questions
+
+        {
+            type:'input',
+            name:'moniker',
+            message:'whats your name?'
+        },
         {
             type:'input',
             name:'title',
@@ -37,13 +43,7 @@ const  promptUser=()=>inquire.prompt([
                 'Apache License 2.0', 'GNU General Public License v3.0','MIT License','Boost Software License 1.0'
             ]
     
-        },
-        {
-            type:'input',
-            name:'contents',
-            message:'provide a quick breakdown of how to traverse your project'
-    
-        },        
+        },                
         {
             type:'input',
             name:'contribute',
@@ -60,7 +60,9 @@ const  promptUser=()=>inquire.prompt([
 //user's response to all these questions to be passed to a md file
 
 const generationMD=()=>{
-    //what should go within this function
+    //include license graphic via markdown file
+    //this function can serve to add some sort of functionality to app
+    //perhaps I can add certain info to certain spots with this function, or simply input certain data direct on the md file
 }
 
 promptUser()
