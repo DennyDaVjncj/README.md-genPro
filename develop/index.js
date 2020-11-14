@@ -1,15 +1,15 @@
 const inquire=require('inquirer');
 const effEss=require('fs');
 const utility=require('util');
-const Choices = require('inquirer/lib/objects/choices');
 const generationMarkDown=require("./utils/generateMarkDown");
-//enter markDown code within tempLiterals;
 const writeFileAsync=utility.promisify(effEss.writeFile);
+
+//node mods into gitignore
+//license selections [choices], table of contents
+//are messages accurate
 
 // array of questions for user
 const  promptUser=()=>inquire.prompt([
-        //complete development of questions
-
         {
             type:'input',
             name:'moniker',
@@ -38,34 +38,31 @@ const  promptUser=()=>inquire.prompt([
         {
             type:'list',
             name:'license',
-            message:'which license did you decide on making use of for this app? an abbreviated selection',
+            message:'which license did you decide on making use of for this app? an abbreviated selection provided',
             choices:[
-                'Apache License 2.0', 'GNU General Public License v3.0','MIT License','Boost Software License 1.0'
-            ]
-    
+                'Apache License 2.0', 'GNU General Public License v3.0','MIT License','Boost Software License 1.0','non applicalble'
+            ]    
         },                
         {
             type:'input',
             name:'contribute',
-            message:'inform users how they may contribute to this project'
+            message:'inform users of the steps required in contributing to this repository'
     
         },
         {
             type:'input',
             name:'test',
-            message:'inform users how they may contribute to this project'
-    
+            message:'not sure what goes here just yet'    
         }
     ])
-//user's response to all these questions to be passed to a md file
-
-const generationMD=()=>{
-    //include license graphic via markdown file
-    //this function can serve to add some sort of functionality to app
-    //perhaps I can add certain info to certain spots with this function, or simply input certain data direct on the md file
-}
 
 promptUser()
-    .then((generationMarkDown)=>writeFileAsync('README.md',generationMD(generationMarkDown)))
+    .then((data)=>writeFileAsync('README.md',generationMarkDown(data)))
     .then(()=>console.log('README.md spawnded'))
     .catch((malware)=>console.error(malware));
+
+const lincensed=(license)=>{
+    
+}
+
+// console.log(generateMarkdown())
