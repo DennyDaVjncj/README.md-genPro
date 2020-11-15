@@ -6,43 +6,38 @@ function generateMarkdown(data) {
   
   # ${data.title}
 
-  ## Description:
+  # Description:
   ${data.description}
 
-  ## Table of Contents:
+  # Table of Contents:
   - [Description](#description)
-  - [Installation Guidlines](#installation-Guidlines)
-  - [How to make use of this app](#use)
-  - [License in use](#license-in-use)
-  - [How to contribute to this already stellar application](#contribution-Guidlines)
+  - [Installation Guidlines](#installation-guidlines)
+  - [Application Usage](#use)
+  - [License In Use](#license-in-use)
+  - [How to Contribute to This Already Stellar App](#contribution-Guidlines)
   - [Tests](#how-to-run-tests)
   - [Questions](#questions)
 
-  ## Installation Guidlines:
+  # Installation Guidlines:
   ${data.installation}
 
-  ## Use:
+  # Use:
   ${data.use}
 
-  ## How to run tests:
+  # How To Run Tests:
   ${data.test}
 
-  ## License in use:
+  # License in use:
   This project uses the following license: [${data.license}](${licenseLink}).
   
   ![License](https://img.shields.io/badge/License-${encodeURIComponent(data.license)}-blue.svg)
 
-  ## Contribution Guidlines
+  # Contribution Guidlines:
   ${data.contribute}
 
-  ## Questions
-  [Github profile](https://www.github.com/${data.moniker})
-  You can email me with questions at ${data.email}.
-
-
-
-
+  # Questions:
+  [Github Profile](https://www.github.com/${data.moniker})
+  Feel free to reach out: ${data.email}
 `;
 }
-
 module.exports = generateMarkdown;
