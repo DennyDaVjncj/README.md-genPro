@@ -13,7 +13,7 @@ const  promptUser=()=>inquire.prompt([
         {
             type:'input',
             name:'moniker',
-            message:'whats your name?'
+            message:'whats your github username?'
         },
         {
             type:'input',
@@ -52,17 +52,23 @@ const  promptUser=()=>inquire.prompt([
         {
             type:'input',
             name:'test',
-            message:'not sure what goes here just yet'    
+            message:'how do you run tests within the command-line?'
+        },
+        {
+            type:'input',
+            name:'email',
+            message:'what is your eMail address?'
         }
     ])
 
 promptUser()
     .then((data)=>writeFileAsync('README.md',generationMarkDown(data)))
     .then(()=>console.log('README.md spawnded'))
+    // .then(()=>`<img src=https://`)//want to dynamically gen license image here. How to set destination withing md File?
     .catch((malware)=>console.error(malware));
 
-const lincensed=(license)=>{
-    
-}
+// const lincensed=(license)=>{
+//     //logic for dynamic license must check [choices] property
+// }
 
 // console.log(generateMarkdown())
