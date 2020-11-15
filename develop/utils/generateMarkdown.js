@@ -35,7 +35,7 @@ function generateMarkdown(data) {
   ${data.contribute}
 
   # Questions:
-  [Github Profile](https://www.github.com/${data.moniker})
+  Github Profile: (https://www.github.com/${data.moniker})
   
   Feel free to reach out: ${data.email}
 `;

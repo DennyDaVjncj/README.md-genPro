@@ -1,112 +1,112 @@
-# Unit 09: Node.js and ES6+
+# 09 Node.js Homework: Professional README Generator
 
-## Overview
+## Your Task
 
-You’ve arrived at another important milestone in your journey. The JavaScript you wrote for your first project was executed entirely on the client side, though it used third-party server-side APIs. In this and later units, you’ll learn how to write your own server-side applications to handle requests and ultimately to build your own APIs.
+When creating an open source project on GitHub, it’s important to have a high-quality README for the app. This should include what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions&mdash;this last part increases the likelihood that other developers will contribute to the success of the project. 
 
-In a previous era, this would be the point when you’d begin learning a second programming language, like PHP, to write server-side code. Luckily, Node.js&mdash;released in 2009&mdash;makes this unnecessary. Node.js is an implementation of the V8 JavaScript engine without Chrome. It allows you to write server-side code using JavaScript. This means that you no longer need a browser to run JavaScript. You can (and will) do so from the command line!
+You can quickly and easily create a README file by using a command-line application to generate one. This allows the project creator to devote more time to working on the project.
 
-In this unit, you’ll learn how to initialize a Node.js project, install third-party dependencies, and create interactive command-line applications. Node.js ships with a **standard library**. The standard library contains a number of modules that allow you to extend the functionality of Node.js, like `fs`, which you’ll use to read and write files. You’ll also learn how to add a large and robust ecosystem of third-party modules to applications to extend their functionality.
+Your task is to create a command-line application that dynamically generates a professional README.md file from a user's input using the [Inquirer package](https://www.npmjs.com/package/inquirer). Review the [Good README Guide](../../01-html-git-css/supplemental/good_readme_guide.md) as a reminder of everything that a high-quality, professional README should contain. 
 
-## Key Topics
+The application will be invoked by using the following command:
 
-The following topics will be covered in this unit:
+```bash
+node index.js
+```
 
-* [Node.js](https://en.wikipedia.org/wiki/Node.js)
+Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality. Revisit the Screencastify Tutorial in the prework as a refresher on how to record video from your computer. You’ll need to submit a link to the video _and_ add it to the README of your project.
 
-	* [process.argv](https://nodejs.org/docs/latest/api/process.html#process_process_argv)
 
-	* [fs](https://node.readthedocs.io/en/latest/api/fs/)
+## User Story
 
-* Modularization
+```md
+AS A developer
+I WANT a README generator
+SO THAT I can quickly create a professional README for a new project
+```
 
-	* [require()](https://nodejs.org/api/modules.html#modules_require_id)
+## Acceptance Criteria
 
-	* [module.exports](https://nodejs.org/api/modules.html#modules_module_exports)
 
-* [npm](https://docs.npmjs.com/about-npm/)
+```md
+GIVEN a command-line application that accepts user input
+WHEN I am prompted for information about my application repository
+THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+<!-- WHEN I enter my project titlgit e -->
+THEN this is displayed as the title of the README
+WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+WHEN I choose a license for my application from a list of options
+THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+WHEN I enter my GitHub username
+THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+WHEN I enter my email address
+THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+WHEN I click on the links in the Table of Contents
+THEN I am taken to the corresponding section of the README
+```
 
-	* [package.json](https://docs.npmjs.com/creating-a-package-json-file)
+## Getting Started
 
-	* [npm init](https://docs.npmjs.com/cli/init)
+Here are some guidelines to help you get started:
 
-	* [node_modules](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)
+* Create a `.gitignore` file and include `node_modules/` and `.DS_Store/` so that your `node_modules` directory isn't tracked or uploaded to GitHub. Be sure to create your `.gitignore` file before installing any npm dependencies.
 
-* [inquirer](https://www.npmjs.com/package/inquirer/v/0.2.3)
+* Make sure that your repo includes a `package.json` with the required dependencies. You can create one by running `npm init` when you first set up the project, before installing any dependencies.
 
-* [ES6](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_%E2%80%93_ECMAScript_2015)
+* Include a video of the typical user flow through your application. This includes views of the prompts and the responses after their selection.
 
-	* [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+* Include any other screenshots you deem necessary to help someone who has never been introduced to your application understand the purpose and function of it. This is how you will communicate to potential employers or other developers in the future what you built and why, and to show how it works.
 
-	* [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+## Grading Requirements
 
-	* [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+This homework is graded based on the following criteria: 
 
-	* Array methods ([map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce))
+### Deliverables: 20%
 
-	* [Spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) and rest
+* A sample README generated using the application must be submitted.
 
-	* [Destructuring arrays and objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* Your GitHub repository containing your application code.
 
-* [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+### Walkthrough Video: 27%
 
-	* [Callbacks](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+* A walkthrough video that demonstrates the functionality of the README generator must be submitted, and a link to the video should be included in your README file.
 
-	* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* The walkthrough video must demonstrate how a user would invoke the application from the command line.
 
-## Learning Objectives
+* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
 
-You will be employer-ready if you are able to: 
+* The walkthrough video must demonstrate a generated README that matches the user input and has a functioning table of contents.
 
-* Build interactive command-line applications that process user input.
+### Technical Acceptance Criteria: 40%
 
-* Explain modularization and how it relates to npm and the standard library.
+* Satisfies all of the above acceptance criteria plus the following:
 
-* Initialize new Node.js projects with npm, and install and import dependencies.
+	* Uses the [Inquirer package](https://www.npmjs.com/package/inquirer).
 
-* Explain the importance and usefulness of ES6+ concepts such as `let`, `const`, and arrow functions.
+### Repository Quality: 13%
 
-* Handle asynchronicity with callbacks and Promises.
+* Repository has a unique name.
 
-## Technical Interview Preparation
+* Repository follows best practices for file structure and naming conventions.
 
-You will be employer-competitive if you are able to solve the following algorithms and successfully complete the assessments.
+* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 
-### Algorithms
+* Repository contains multiple descriptive commit messages.
 
-Practicing algorithm-based interview questions is one of the best ways to prepare for interviews.
+* Repository contains a high-quality README with description and a link to walkthrough video.
 
-* [01: Character Count](./algorithms/01-character-count/README.md)
 
-	* [📹 Let's Code Character Count!](https://2u-20.wistia.com/medias/6ka87l3z21)
+## Review
 
-* [02: Product of Largest Two](./algorithms/02-product-of-largest-two/README.md)
+You are required to submit the following for review:
 
-* [03: Camel Case](./algorithms/03-camel-case/README.md)
+* A walkthrough video demonstrating the functionality of the application.
 
-### Assessments
+* A sample README.md file for a project repository generated using your application
 
-Assess your knowledge by answering technical interview questions and solving coding challenges.
+* The URL of the GitHub repository, with a unique name and a README describing the project
 
-* [Unit 09 Assessment](https://forms.gle/VKfsdSySYgc4Hrih7) 
+---
 
-## Homework
-
-In the homework for this unit, you’ll create a command-line application that uses input from a user to dynamically generate a quality readme for a GitHub project.
-
-## Career Connection
-
-Career Services material for this unit is located in the [Career Connection folder](./supplemental/career_connection.md). For more information about Career Services, including coding milestones, demo days, technical toolkits, workshops, and additional resources, visit the [Career Services website](http://bit.ly/CodingCS).
-
-## Heads-Up
-
-In this unit, you'll begin to use Node.js. Be sure to have it installed on your computer **before** attending your classes. You can follow the [Node.js installation guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs) to install Node.js on your computer.
-
-## Resources
-
-Here are some additional resources to help solidify the topics covered in this unit:
-
-* 📖 [Node.js installation guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs)
-
-- - -
 © 2020 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
