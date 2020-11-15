@@ -1,5 +1,5 @@
  
-  # README.md-genPRO
+  # README.md-genPro
 
   # Description:
   an app invoked via command-line, which presents users with questions that tabulate into a high-quality README.md file
