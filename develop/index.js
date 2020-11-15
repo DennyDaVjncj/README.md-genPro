@@ -4,10 +4,6 @@ const utility=require('util');
 const generationMarkDown=require("./utils/generateMarkDown");
 const writeFileAsync=utility.promisify(effEss.writeFile);
 
-//node mods into gitignore
-//license selections [choices], table of contents
-//are messages accurate
-
 // array of questions for user
 const  promptUser=()=>inquire.prompt([
         {
@@ -50,9 +46,10 @@ const  promptUser=()=>inquire.prompt([
     
         },
         {
-            type:'input',
+            type:'list',
             name:'test',
-            message:'how do you run tests within the command-line?'
+            message:'what command is required for running a test within the terminal?',
+            choices:['npm i','npm run test','npm install test','npm init run-test']
         },
         {
             type:'input',
@@ -63,12 +60,5 @@ const  promptUser=()=>inquire.prompt([
 
 promptUser()
     .then((data)=>writeFileAsync('README.md',generationMarkDown(data)))
-    .then(()=>console.log('README.md spawnded'))
-    // .then(()=>`<img src=https://`)//want to dynamically gen license image here. How to set destination withing md File?
+    .then(()=>console.log('README.md spawnded'))    
     .catch((malware)=>console.error(malware));
-
-// const lincensed=(license)=>{
-//     //logic for dynamic license must check [choices] property
-// }
-
-// console.log(generateMarkdown())
