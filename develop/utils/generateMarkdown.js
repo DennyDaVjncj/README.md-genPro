@@ -1,7 +1,6 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
-  // if they choose apache, then your license link is apache, so on so forth for the others, use a switch or an if/else if
-  let licenseLink = "";
+function generateMarkdown(data) {  
+  let licenseLink = "";//given the direction I took with the logic, the license isn't generated till after the user makes their choice of license
   return `
   
   # ${data.title}
@@ -37,6 +36,7 @@ function generateMarkdown(data) {
 
   # Questions:
   [Github Profile](https://www.github.com/${data.moniker})
+  
   Feel free to reach out: ${data.email}
 `;
 }
